@@ -1,4 +1,4 @@
-git "~/.dotfiles" do
-  repository "https://github.com/zacholauson/dotfiles.git"
+git "#{node[:dotfiles][:directory]}" do
+  repository node[:dotfiles][:repo]
   action     :checkout
 end
