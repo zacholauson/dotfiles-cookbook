@@ -5,17 +5,6 @@ link "#{node[:home]}/bin" do
   owner node[:current_user]
 end
 
-link_dotfile("zsh")
-link_dotfile("zshrc")
-
-link_dotfile("vim")
-link_dotfile("vimrc")
-
-link_dotfile("gitconfig")
-link_dotfile("gitignore")
-link_dotfile("githelpers")
-
-link_dotfile("tmux.conf")
-
-link_dotfile("gemrc")
-
+node[:dotfiles][:names].each do |dotfile_name|
+  link_dotfile dotfile_name
+end
