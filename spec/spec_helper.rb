@@ -11,8 +11,10 @@ def test_against_platforms(platforms = PLATFORMS, &block)
       context "on #{platform} #{version}" do
         before { Fauxhai.mock(platform: platform, version: version) }
 
-        yield
-      end
+module ChefSpec::API
+  module LinkMatchers
+    def create_dotfile_link(resource_name)
+      ChefSpec::Matchers::ResourceMatcher.new(:link_dotfile, :create, resource_name)
     end
   end
 end
