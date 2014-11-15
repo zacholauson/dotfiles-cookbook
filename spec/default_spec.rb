@@ -8,9 +8,14 @@ describe "dotfiles::default" do
 
       let(:dotfiles_dir)  { chef_run.node[:dotfiles][:directory] }
       let(:dotfiles_repo) { chef_run.node[:dotfiles][:repo] }
+      let(:current_user)  { chef_run.node[:current_user] }
 
-      it "downloads zacholauson/dotfiles to ~/.dotfiles" do
-        expect(chef_run).to checkout_git(dotfiles_dir).with(repository: dotfiles_repo)
+      it "downloads zacholauson/dotfiles to the dotfiles_dir" do
+        expect(chef_run).to sync_git(dotfiles_dir).with(repository: dotfiles_repo)
+      end
+
+      it "gives ownership of dotfiles_dir to the current_user" do
+        expect(chef_run).to run_execute("chown -R #{current_user} #{dotfiles_dir}")
       end
     end
   end
