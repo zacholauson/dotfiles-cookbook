@@ -1,6 +1,7 @@
 require "chefspec"
 
 PLATFORMS = {
+  "arch"     => ["3.10.5-1-ARCH"],
   "mac_os_x" => ["10.9.2", "10.10"],
   "ubuntu"   => ["10.04", "12.04", "14.04", "14.10"]
 }
