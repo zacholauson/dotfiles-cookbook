@@ -6,4 +6,3 @@ link_dotfile("vimrc")
 
 link_dotfile("gitconfig")
 link_dotfile("gitignore")
-
