@@ -1,10 +1,10 @@
 require "spec_helper"
 
-describe "dotfiles::default" do
+describe "dotfiles::download" do
   test_against_platforms do |platform, version|
     context "running #{platform}: #{version}" do
 
-      let(:chef_run)      { ChefSpec::SoloRunner.new.converge("dotfiles::default") }
+      let(:chef_run)      { ChefSpec::SoloRunner.new.converge("dotfiles::download") }
 
       let(:dotfiles_dir)  { chef_run.node[:dotfiles][:directory] }
       let(:dotfiles_repo) { chef_run.node[:dotfiles][:repo] }

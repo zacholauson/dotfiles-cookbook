@@ -1,3 +1,5 @@
+include_recipe "dotfiles::download"
+
 link "#{node[:home]}/bin" do
   to "#{node[:dotfiles][:directory]}/bin"
   owner node[:current_user]
