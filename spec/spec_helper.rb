@@ -5,7 +5,7 @@ PLATFORMS = {
   "ubuntu"   => ["10.04", "12.04", "14.04"]
 }
 
-def test_against_platforms(platforms, &block)
+def test_against_platforms(platforms = PLATFORMS, &block)
   platforms.each do |platform, versions|
     versions.each do |version|
       context "on #{platform} #{version}" do
